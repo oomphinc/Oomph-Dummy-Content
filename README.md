@@ -16,10 +16,16 @@ can be specified. Images will be selected at random from the "Random Photos" poo
 * Activate the plugin under **Appearance > Plugins** 
 
 ## WordPress plugin tags
+
 Contributors: bendoh, thinkoomph
+
 Donate link: http://www.thinkoomph.com/
+
 Tags: content, dummy, flickr, filler, generator
+
 Requires at least: 3.2
+
 Tested up to: 3.4.1
+
 Stable tag:
 
