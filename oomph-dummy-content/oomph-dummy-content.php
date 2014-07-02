@@ -583,6 +583,7 @@ class Oomph_Dummy_Content {
 				if( $title ) {
 					$post_data = array(
 						'post_title' => $title,
+						'post_type' => $type,
 						'post_content' => implode("\n\n", $paras),
 						'post_status' => 'publish',
 						'post_author' => 1,
