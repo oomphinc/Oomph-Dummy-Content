@@ -29,3 +29,9 @@ Tested up to: 3.4.1
 
 Stable tag:
 
+## Plugin brought to you by Oomph, Inc
+![](https://github.com/gdtrombetti/Oomph-Dummy-Content/blob/master/images/Oomph_logo.png)
+
+Oomph is a full service digital design and engineering firm assisting premium brands and media companies with large-scale content engagement solutions.
+http://oomphinc.com/
+
