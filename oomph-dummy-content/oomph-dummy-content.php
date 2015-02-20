@@ -38,7 +38,7 @@ class Oomph_Dummy_Content {
 		'para_count' => 8,
 		'photo_count' => 2,
 		'spread' => 72,
-		'flickrkey' => 'cdbf5db7d68d90e7868c8b2df74e6281'
+		'flickrkey' => '4698bf96b92aad7dab65a3c23912b784'
 	);
 
 	var $async = false;
@@ -291,7 +291,7 @@ class Oomph_Dummy_Content {
 			$encoded_params[] = urlencode($k).'='.urlencode($v);
 		}
 
-		$url = "http://api.flickr.com/services/rest/?".implode('&', $encoded_params);
+		$url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
 
 		$rsp = file_get_contents($url);
 
@@ -589,13 +589,13 @@ class Oomph_Dummy_Content {
 						'post_author' => 1,
 						'post_date' => date('Y-m-d H:i:s', time() - (mt_rand()/mt_getrandmax())*(60*60*24*30*$months))
 					);
-
+					
 					$post_ID = wp_insert_post( $post_data );
-
+					
 					update_post_meta( $post_ID, $this->meta_key_dummy, 1 );
 		
 					$post = get_post( $post_ID );
-
+					
 					if( $post ) {
 						$result_message = '<a target="postPreview" href="' . get_permalink( $post->ID ) . '">Post ID #'. esc_html( $post->ID ) . ': ' . esc_html( $post->post_title ) . '</a> <strong>' . esc_html( $type ) . '</strong> #' . esc_html( $i + 1 ) . ' (' . esc_html( $num ) . ' paragraphs)';
 
