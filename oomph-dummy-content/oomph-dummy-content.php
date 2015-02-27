@@ -450,9 +450,16 @@ class Oomph_Dummy_Content {
 					}
 				}
 				else {
-					$this->result( '<p>Gathering <strong>' . esc_html( $numparas ) . '</strong> paragraphs for <strong>' . esc_html( $type ) . '</strong> posts...</p>' );
-					$result = wp_remote_get( 'http://loripsum.net/api/' . implode( '/', $contents ) . '/' . $nparas[$type] );
-					$lorems[$type] = explode( "\n\n", trim( $result['body'] ) );
+					if($type == "page") {
+          	$this->result( '<p>Gathering <strong>' . esc_html( $numparas ) . '</strong> paragraphs for <strong>' . esc_html( $type ) . '</strong> posts...</p>' );
+          	$result = wp_remote_get( 'http://loripsum.net/api/' . implode( '/', $contents ) . '/' . $nparas[$type] );
+          	$lorems[$type] = explode( "\n\n", trim( $result['body'] ) );
+          	}
+          if($type == "post") {
+            $this->result( '<p>Gathering <strong>' . esc_html( $numparas ) . '</strong> paragraphs for <strong>' . '</strong> posts...</p>' );
+          	$result = wp_remote_get( 'http://loripsum.net/api/' . implode( '/', $contents ) . '/' . $nparas[$type] );
+          	$lorems[$type] = explode( "\n\n", trim( $result['body'] ) );
+          }
 				}
 				$total_text += count( $lorems[$type] );
 			}
@@ -538,8 +545,13 @@ class Oomph_Dummy_Content {
 		
 		foreach( $types as $type ) {
 			unset( $photo );
-			$this->result( "<p>Generating {$nposts[$type]} <strong>$type</strong> posts...</p>" );
-
+			
+			if($type == "page") {
+      	$this->result( "<p>Generating {$nposts[$type]} <strong>$type</strong> posts...</p>" );
+      }
+      if($type == "post") {
+      	$this->result( "<p>Generating {$nposts[$type]} posts...</p>" );
+      }
 			$alignments = $this->param( 'photo_align', $type );
 
 			if( empty( $alignments ) )
